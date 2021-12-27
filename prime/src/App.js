@@ -1,8 +1,19 @@
 import React from 'react'; // Importando react
 
+const BemVindo = (props) => {
+    return(
+        <div>
+            <h2>Bem vindo(a) {props.nome} tenho {props.idade} anos</h2>
+        </div>
+    )
+}
+
 function App(){ // Criando função
     return (
-        <h1>Olá Mundo</h1> //O que será apresentado na tela
+        <div>
+            <BemVindo nome="Matheus" idade="10"/>
+            <BemVindo nome="Amanda" idade="24"/>
+        </div>
     );
 }
 
