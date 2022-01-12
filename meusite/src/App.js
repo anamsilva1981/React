@@ -1,16 +1,48 @@
-import React from 'react'; // Importando React
+import React, { Component } from 'react';
 
-const Bemvindo = () => <h2>Bem-Vindo(a)</h2>
+class App extends Component{
 
-function App(){ // Criando função 
-    return (
-    <div>
-        Olá Mundo!
-        <Bemvindo/>
-        <h1>Curso React</h1>
-    </div>
-    );
+    constructor(props){
+        super(props);
+        this.state = {
+            nome: 'Matheus',
+            contador: 0
+        };
+
+        this.aumentar = this.aumentar.bind(this);
+        this.diminuir = this.diminuir.bind(this);
+    }
+
+    aumentar(){
+        let state = this.state;
+        state.contador += 1;
+        this.setState(state)
+    }
+
+    diminuir(){
+        let state = this.state;
+        if(state.contador ===0){
+            alert('Opa chegou a zero');
+            return;
+        }
+
+        state.contador -= 1;
+        this.setState(state)
+    }
+
+
+    render(){
+        return(
+            <div>
+                <h1>Contador</h1>
+                <h3>
+                    <button onClick={this.diminuir}>-</button>
+                        {this.state.contador}
+                    <button onClick={this.aumentar}>+</button>
+                </h3>         
+
+            </div>
+        )
+    }
 }
-
-// Exportando a função para acessar em outro lugar este componente
 export default App;
